@@ -32,6 +32,9 @@ for word in words:
         continue
     else:
         continue
-print(f"There are {len(possibles)} possibilities for the missing word. These are:\n")
+print(f"There are {len(possibles)} possibilities for the missing word. These are saved to a text file and printed:\n")
 for word in possibles:
     print(word)
+with open("possible_seeds.txt", "w+") as text_file:
+    for word in possibles:
+        text_file.write(" ".join(prtl_seed[0:missing_po] + [word] + prtl_seed[missing_po:]) + "\n\n")
